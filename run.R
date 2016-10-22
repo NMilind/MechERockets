@@ -3,6 +3,7 @@
 ### Date:     October 11 2016                       ###
 ### ----------------------------------------------- ###
 
+setwd("~/Desktop/R-Code/MechERockets")
 source("rocket.R")
 
 rocket <- runSim(0)

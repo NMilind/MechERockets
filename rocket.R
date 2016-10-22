@@ -12,7 +12,7 @@ library(gridExtra)
 ### ENVIRONMENT SETUP ###
 rm(list = ls())
 graphics.off()
-setwd("/home/nikhil/Desktop/R-Code/RocketModel")
+setwd("/home/nikhil/Desktop/R-Code/MechERockets")
 
 source("integrator.R")
 source("data.R")
