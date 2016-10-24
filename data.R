@@ -4,9 +4,9 @@
 ### ----------------------------------------------- ###
 
 ### LOAD DATA ###
-thrust <- read.csv("thrust.csv", header=TRUE)
-density <- read.csv("density.csv", header=TRUE)
-mass <- read.csv("mass.csv", header=TRUE)
+thrust <- read.csv("data/thrust.csv", header=TRUE)
+density <- read.csv("data/density.csv", header=TRUE)
+mass <- read.csv("data/mass.csv", header=TRUE)
 
 ### GENERATE CURVES ###
 
@@ -110,5 +110,5 @@ mass.curve <- function(time) {
     }
   }
   
-  return(mass.curve.data[length(mass.curve.data), "mass"])
+  return(mass.curve.data[length(mass.curve.data$mass), "mass"])
 }
