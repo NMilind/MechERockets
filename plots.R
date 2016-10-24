@@ -102,3 +102,9 @@ plotRawData <- function() {
   raw.beta.plot <- qplot(x=raw.beta$Time, y=raw.beta$Altitude, main="Beta Flight Comparison", xlab="Time (sec)", ylab="Altitude (meters)", size=I(0.2), ylim=c(-50, 80)) + geom_line() + geom_point(aes(x=rocket$Time, y=rocket$Altitude), color="red", size=I(0.2)) + geom_line() + geom_point(aes(x=raw.beta1$Time, y=raw.beta1$Altitude), color="green", size=I(0.2)) + geom_line() + geom_point(aes(x=raw.beta2$Time, y=raw.beta2$Altitude), color="green", size=I(0.2)) + geom_line()
   grid.arrange(raw.alpha.plot, raw.beta.plot, ncol=1)
 }
+
+nasaExpenditurePlot <- function() {
+  
+  nasa <- read.csv("data/nasa-budget.csv")
+  qplot(main="NASA Budget as Percent of Federal Budget", xlab="Year", ylab="Percent of Federal Budget") + geom_bar(aes(x=nasa$year, y=nasa$percent.budget), stat="identity")
+}
