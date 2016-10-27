@@ -4,7 +4,7 @@
 ### ----------------------------------------------- ###
 
 ### SIMULATION SETUP ###
-DT <- mass$dt
+DT <- 0.01#mass$dt
 RANGE <- mass$range
 rocket.time <- seq(0, RANGE, length.out=(RANGE / DT))
 rocket.fnet <- vector(mode="double", length=(RANGE / DT))

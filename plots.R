@@ -50,7 +50,7 @@ plotRawData <- function() {
   
   graphics.off()
   graphAlts <- c()
-  graphMass <- seq(mass.m1 - (mass.inc * 20), mass.m1 + (mass.inc * 20), by=mass.inc)
+  graphMass <- seq(mass.m1 - (mass.inc * 10), mass.m1 + (mass.inc * 10), by=mass.inc)
   for (i in graphMass) {
     rocket <- runSim(i)
     graphAlts <- c(graphAlts, max(rocket$Altitude))
@@ -106,5 +106,5 @@ plotRawData <- function() {
 nasaExpenditurePlot <- function() {
   
   nasa <- read.csv("data/nasa-budget.csv")
-  qplot(main="NASA Budget as Percent of Federal Budget", xlab="Year", ylab="Percent of Federal Budget") + geom_bar(aes(x=nasa$year, y=nasa$percent.budget), stat="identity")
+  qplot(main="NASA Budget as Percent of Federal Budget", xlab="Year", ylab="Percent of Federal Budget") + geom_bar(aes(x=nasa$year, y=nasa$percent.budget), stat="identity", fill="darkgreen", color="black")
 }
