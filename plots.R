@@ -36,6 +36,7 @@ plotInitialData <- function() {
   plots.massRun <- qplot(x=seq(0, 1, by=0.005), y=mass.testCurve, main="Mass Curve Sample Run", xlab="Time (sec)", ylab="Mass of Rocket (kg)", size=I(0.5)) + geom_line() + plot_theme
   x11()
   grid.arrange(plots.massRun, ncol=1)
+  x11()
 }
 
 plotResults <- function(rocket) {
@@ -50,7 +51,6 @@ plotResults <- function(rocket) {
 
 plotRawData <- function() {
   
-  graphics.off()
   graphAlts <- c()
   graphMass <- seq(mass.m1 - (mass.inc * 10), mass.m1 + (mass.inc * 10), by=mass.inc)
   for (i in graphMass) {
@@ -103,16 +103,19 @@ plotRawData <- function() {
   raw.alpha2.plot <- qplot(x=raw.alpha2$Time, y=raw.alpha2$Altitude, main="Alpha Flight 2 Altitude vs. Time", xlab="Time (sec)", ylab="Altitude (meters)", size=I(0.2)) + geom_line() + plot_theme
   raw.beta1.plot <- qplot(x=raw.beta1$Time, y=raw.beta1$Altitude, main="Beta Flight 1 Altitude vs. Time", xlab="Time (sec)", ylab="Altitude (meters)", size=I(0.2)) + geom_line() + plot_theme
   raw.beta2.plot <- qplot(x=raw.beta2$Time, y=raw.beta2$Altitude, main="Beta Flight 2 Altitude vs. Time", xlab="Time (sec)", ylab="Altitude (meters)", size=I(0.2)) + geom_line() + plot_theme
+  x11()
   grid.arrange(raw.alpha1.plot, raw.alpha2.plot, raw.beta1.plot, raw.beta2.plot)
   
   raw.alpha.plots <- qplot(x=raw.alpha1$Time, y=raw.alpha1$Altitude, main="Alpha Flights Altitude vs. Time", xlab="Time (sec)", ylab="Altitude (meters)", size=I(0.2), xlim=c(0, 5)) + geom_line(aes(x=raw.alpha2$Time, y=raw.alpha2$Altitude), size=I(0.2), color="green") + geom_line() + plot_theme
   raw.beta.plots <- qplot(x=raw.beta1$Time, y=raw.beta1$Altitude, main="Beta Flights Altitude vs. Time", xlab="Time (sec)", ylab="Altitude (meters)", size=I(0.2), ylim=c(-30, 80), xlim=c(0, 5)) + geom_line(aes(x=raw.beta2$Time, y=raw.beta2$Altitude), size=I(0.2), color="green") + geom_line() + plot_theme
+  x11()
   grid.arrange(raw.alpha.plots, raw.beta.plots, ncol=2)  
   
   rocket <- runSim(0)
   raw.alpha.plot <- qplot(x=raw.alpha$Time, y=raw.alpha$Altitude, main="Alpha Flight Comparison", xlab="Time (sec)", ylab="Altitude (meters)", size=I(0.2), xlim=c(0, 5)) + geom_line() + geom_point(aes(x=rocket$Time, y=rocket$Altitude), color="red", size=I(0.2)) + geom_line() + geom_point(aes(x=raw.alpha1$Time, y=raw.alpha1$Altitude), color="green", size=I(0.2)) + geom_line() + geom_point(aes(x=raw.alpha2$Time, y=raw.alpha2$Altitude), color="green", size=I(0.2)) + geom_line() + plot_theme
   rocket <- runSim(0.010) 
   raw.beta.plot <- qplot(x=raw.beta$Time, y=raw.beta$Altitude, main="Beta Flight Comparison", xlab="Time (sec)", ylab="Altitude (meters)", size=I(0.2), ylim=c(-50, 80), xlim=c(0, 5)) + geom_line() + geom_point(aes(x=rocket$Time, y=rocket$Altitude), color="red", size=I(0.2)) + geom_line() + geom_point(aes(x=raw.beta1$Time, y=raw.beta1$Altitude), color="green", size=I(0.2)) + geom_line() + geom_point(aes(x=raw.beta2$Time, y=raw.beta2$Altitude), color="green", size=I(0.2)) + geom_line() + plot_theme
+  x11()
   grid.arrange(raw.alpha.plot, raw.beta.plot, ncol=2)
 }
 
