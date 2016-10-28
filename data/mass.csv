@@ -1,2 +1,2 @@
 initial mass,final mass,cd,rocket area,ballast min,ballast max,ballast inc,dt,range
-0.0418,0.03868,2.04,0.000297,0,0.002,0.01,1,8
+0.0418,0.03868,2.04,0.000297,0,0.002,0.01,0.05,8
